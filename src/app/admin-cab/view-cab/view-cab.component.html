@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="cust-cab-mgmt-div col card mb-3 my-4 justify-content-center shadow">
+        <div class="row ">
+            <div class="d-flex gradient-custom-2 rounded-top py-3">
+                <div class="custom-card-head col-12 d-flex flex-column justify-content-center align-items-center">
+                    <div class="h1 align-self-center">Travel Buddy</div>
+                    <div class="h6 align-self-center text-wrap">Your smooth Travel Management partner</div>
+                </div>
+            </div>
+            <div class="border-start border-secondary rounded-bottom">
+                <div class="card-body">
+                    <h5 class="card-title h2 text-secondary">Cab Management</h5>
+                    <hr>
+                    
+                    <p class="card-text">
+                            <div class="pt-3 table-responsive">
+                                <table class="table table-bordered table-hover " *ngIf="allCabs">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Cab ID</th>
+                                            <th>Cab Model</th>
+                                            <th>Cab Type</th>
+                                            <th>License Number</th>
+                                            <th>Price per Hour</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of allCabs">
+                                            <td>{{data.id}}</td>
+                                            <td>{{data.cabModel}}</td>
+                                            <td>{{data.cabType}}</td>
+                                            <td>{{data.plateNo}}</td>
+                                            <td>{{data.pricePerHour}}</td>
+                                            <td class="d-flex justify-content-evenly">
+                                                <a  role="button" (click)="openCabAddEditModal(cabAddEditModal,data)"><i class="fa fa-edit custIconColor"></i></a>
+                                                <a role="button" (click)="openDeleteCabModal(deleteCabModal,data)"><i class="fa fa-trash custIconColor"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center">
+                            <button class="btn gradient-custom-2 me-1" (click)="openCabAddEditModal(cabAddEditModal)" >Add New Cab</button>
+                        </div>
+                    <!-- </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #cabAddEditModal let-modal class="bg-modal">
+    <tms-edit-cab [cabInfo]="cabInfo" (closeModel)="closeModel(cabAddEditModal)"></tms-edit-cab>
+</ng-template>
+
+<ng-template #deleteCabModal let-modal>
+	<div class="modal-header gradient-custom-2">
+		<h4 class="modal-title" id="modal-basic-title">Delete Cab</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="my-2 d-flex  flex-column align-items-center">
+            <p class="font-weight-bold"><strong>Confirm if you want to delete the Cab.</strong></p> 
+            <p class="font-weight-bold"><strong>Once deleted it cannot be reverted back.</strong></p>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn gradient-custom-2 me-1" (click)="deleteCab(cabInfo)">Delete Cab</button>
+	</div>
+</ng-template>

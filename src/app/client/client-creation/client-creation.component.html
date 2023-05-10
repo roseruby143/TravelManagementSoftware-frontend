@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-md-2 col-lg-3 "></div>
+    <div class="cust-client-creation-div col card mb-3 my-4 justify-content-center shadow" style="max-width: 768px">
+        <div class="row">
+            <div class="d-flex gradient-custom-2 borderColorCust rounded-top py-3">
+                <div
+                    class="custom-card-head col-12 text-light d-flex flex-column justify-content-center align-items-center">
+                    <div class="h1 align-self-center">{{projectName}}</div>
+                    <div class="h6 align-self-center text-wrap">Your smooth Client Management partner</div>
+                </div>
+            </div>
+            <div class="borderColorCust rounded-bottom">
+                <div class="card-body custProjectTheme">
+                    <h5 class="card-title text-secondary h2">Add New Client</h5>
+                    <hr>
+                    <p class="card-text">
+                        <div class="row mb-5 mx-1">
+                            <div class="pt-0">
+                                <form class="border px-4 py-3 mt-2">
+                                    <div class="form-group row my-2">
+                                        <label for="clientCreationInputName" class="col-sm-3 col-form-label">Name<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="name" id="clientCreationInputName" (change)='validateName()'
+                                                placeholder="Full Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="clientCreationInputEmail" class="col-sm-3 col-form-label">Email<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="clientCreationInputEmail" name="email address" (change)='validateEmail()'
+                                                placeholder="Email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row my-2">
+                                        <label for="inputAddress" class="col-sm-3 col-form-label">Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputAddress"
+                                                placeholder="1234 Main St">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputAddress2" class="col-sm-3 col-form-label"></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputAddress2"
+                                                placeholder="Apartment, studio, or floor">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <div class="col-sm-3"></div>
+                                        <div class="form-group col-sm-4">
+                                            <input type="text" class="form-control" id="inputCity"
+                                                placeholder="City">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <input type="text" class="form-control" id="inputState"
+                                                placeholder="State">
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputPhoneNumber" class="col-sm-3 col-form-label">Phone
+                                            Number<sup class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputPhoneNumber"
+                                                placeholder="(111) 111-1111" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputPoC" class="col-sm-3 col-form-label">Point of Contact<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputPoC"
+                                                placeholder="Name of the PoC" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputStatus" class="col-sm-3 col-form-label">Client
+                                            Status</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputStatus"
+                                                placeholder="Active/In Discussion/Denied etc">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputTier" class="col-sm-3 col-form-label">Client Tier</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputTier"
+                                                placeholder="1/2/3 tier">
+                                        </div>
+                                    </div>
+                                    <div class="flex row my-4">
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn justify-content-center gradient-custom-2">Add
+                                                New Client</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <!-- </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-3"></div>
+</div>

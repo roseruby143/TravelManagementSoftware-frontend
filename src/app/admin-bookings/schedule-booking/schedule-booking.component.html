@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-2 col-lg-3 "></div>
+    <div class="cust-meeting-schedule-div col card mb-3 my-4 justify-content-center shadow" style="max-width: 768px">
+        <div class="row ">
+            <div class="d-flex gradient-custom-2 rounded-top py-3">
+                <div
+                    class="custom-card-head col-12 text-light d-flex flex-column justify-content-center align-items-center">
+                    <div class="h1 align-self-center">{{projectTitle}}</div>
+                    <div class="h6 align-self-center text-wrap">Your smooth Client Management partner</div>
+                </div>
+            </div>
+            <div class="border-start border-secondary rounded-bottom">
+                <div class="card-body">
+                    <h5 class="card-title h2 text-secondary">Schedule New Booking</h5>
+                    <hr>
+                    <p class="card-text">
+                        <div class="row mb-5 mx-1">
+                            <div class="p-4 pt-0">
+                                <form class="border px-4 py-3 mt-2">
+                                    <div class="form-group row my-2">
+                                        <label for="inputName" class="col-sm-3 col-form-label">Client Name<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputName"
+                                                placeholder="Client Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Client's Email<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3"
+                                                placeholder="Client's Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputPoC" class="col-sm-3 col-form-label">Point of Contact<sup
+                                                class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputPoC"
+                                                placeholder="Name of the PoC" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="inputPhoneNumber" class="col-sm-3 col-form-label">PoC's Phone
+                                            <sup class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputPhoneNumber"
+                                                placeholder="Contact detail of PoC" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="meetingScheduleMDateInput" class="col-sm-3 col-form-label">Meeting Date<sup class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" name="date" (change)='validateDate()' id="meetingScheduleMDateInput" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label for="meetingTime" class="col-sm-3 col-form-label">Meeting Time<sup class="text-danger">*</sup></label>
+                                        <div class="col-sm-9">
+                                            <input type="time" class="form-control" id="meetingTime" (change)='validateTime()'  required>
+                                        </div>
+                                    </div>                                       
+                                    
+                                    <div class="flex row my-4">
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn gradient-custom-2 justify-content-center">Send Booking Invite</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <!-- </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-3"></div>
+</div>

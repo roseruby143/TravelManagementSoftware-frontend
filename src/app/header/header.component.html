@@ -1,0 +1,65 @@
+<div class="navbar navbar-expand-lg gradient-custom-2 px-3 px-sm-4">
+    <a class="navbar-brand mb-0 h1 textWhiteBold" routerLink="['/welcome']"><img src="./../../assets/Image/TravelManagement.png" width="100" height="50" class="d-inline-block align-top" alt="TravelBuddy"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse  justify-content-between" id="navbarNav" *ngIf="this.loginServiceObj.loginUser !== 'Login/Register'">
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item active">
+                <a class="nav-link textWhiteBold navHoverCust" [routerLink]="'/welcome'">Home <span class="sr-only">(current)</span></a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link textWhiteBold navHoverCust" (click)="viewBookingRouting()">View Bookings </a>
+              </li>
+              <li class="nav-item" *ngIf="this.loginServiceObj.loginUser == 'admin'">
+                <a class="nav-link textWhiteBold navHoverCust" [routerLink]="'/all-clients'">View Clients </a>
+              </li>
+              <li class="nav-item" *ngIf="this.loginServiceObj.loginUser == 'admin'">
+                <a class="nav-link textWhiteBold navHoverCust" [routerLink]="'/all-cabs'">View Cabs </a>
+              </li>
+
+
+            <!--li class="nav-item dropdown">
+               < <a class="nav-link dropdown-toggle textWhiteBold" href="#" role="button" [id]='navlistName.navLis'
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {{navlistName.navLis}}
+                </a>
+                <div class="dropdown-menu gradient-custom-2 "  aria-labelledby='navlistName.navLis'>
+                    <span *ngFor="let listDropDown of navlistName.navListDropdown" class=""><a class="dropdown-item textWhiteBold navHoverCust" [routerLink]='listDropDown.listValue'>{{listDropDown.listName}}</a>
+                </span>
+                </div>
+            </li-->
+            <!-- <li class="nav-item dropdown" *ngFor="let navlistName of _navBarList">
+                <a class="nav-link dropdown-toggle textWhiteBold" href="#" role="button" [id]='navlistName.navLis'
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {{navlistName.navLis}}
+                </a>
+                <div class="dropdown-menu gradient-custom-2 "  aria-labelledby='navlistName.navLis'>
+                    <span *ngFor="let listDropDown of navlistName.navListDropdown" class=""><a class="dropdown-item textWhiteBold navHoverCust" [routerLink]='listDropDown.listValue'>{{listDropDown.listName}}</a>
+                </span>
+                </div>
+            </li> -->
+        </ul>
+        <div class="mx-3"> 
+            <!-- <b *ngIf="this.loginServiceObj.loginUser !== 'Login/Register'"><i class="cust-profile-name fa fa-user textWhiteBold">&nbsp; &nbsp;  
+                <a [routerLink]="'/login'" style="cursor: pointer;" class="textWhiteBold" id="loginUserNameHeader">{{this.loginServiceObj.loginUser}}</a> 
+                <span id="logOutOption" class="textWhiteBold"></span>
+            </i></b> -->
+
+            <div class="row" *ngIf="this.loginServiceObj.isUserLoggedIn; else isLogOut">
+                <i class="cust-profile-name fa fa-user textWhiteBold">&nbsp; &nbsp;  
+                    <a style="cursor: pointer;" class="d-inline textWhiteBold" id="loginUserNameHeader">{{this.loginServiceObj.loginUser}}</a> |
+                    <a class="nav-link textWhiteBold d-inline" (click)="onLogout()" style="cursor: pointer;">Logout</a>
+                </i>
+                
+          </div>
+
+          <ng-template #isLogOut>
+                      <a class="nav-link textWhiteBold" routerLink="/login">Login</a>
+          </ng-template>                   
+            
+        </div>
+    </div>
+</div>

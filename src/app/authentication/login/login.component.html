@@ -1,0 +1,171 @@
+<div class="container">
+    <div class="row mt-5  gradient-form">
+        <div class="col-md-2 col-lg-3"></div>
+        <div class="col-md-8 col-lg-6">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs justify-content-center nav-fill border border-danger boder-bottom-0" role="tablist">
+                <li [ngbNavItem]="'login'"  role="presentation">
+                    <a ngbNavLink class="d-flex justify-content-center align-items-center h-100 border-0 rounded-0">Login</a>
+                    <ng-template ngbNavContent>
+                        <div class="" id="loginNavContent" role="tabpanel" aria-labelledby="tab-login">
+                            <form #userLogin="ngForm" (ngSubmit)="onLogin(userLogin.value)">
+                                <div class="text-center mb-3">
+                                    <p class="my-0">Login with</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fa fa-facebook-f"></i>
+                                    </button>
+                            
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fa fa-google"></i>
+                                    </button>
+                            
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fa fa-twitter"></i>
+                                    </button>
+                            
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fa fa-github"></i>
+                                    </button>
+                                </div>
+
+                                <div style="width: 100%; height: 17px; border-bottom: 1px solid #d8363a; text-align: center">
+                                    <span style="font-size: 20px; background-color: white; padding: 0 10px;">
+                                      OR <!--Padding is optional-->
+                                    </span>
+                                  </div>
+                        
+                                <!-- Email input -->
+                                <div class="row form-outline mt-5 mb-4">
+                                    <label class="form-label d-block col-sm-4" for="loginName">Email or username</label>
+                                    <div class="d-block col-sm-8">
+                                        <input type="text" id="loginName" class="form-control" (change)="validateInput('loginName')" name="loginName" ngModel required>
+                                    </div>
+                                </div>
+                        
+                                <!-- Password input -->
+                                <div class="row form-outline mb-4">
+                                    <label class="form-label d-block col-sm-4" for="loginPassword" >Password</label>
+                                    <div class="d-block col-sm-8">
+                                        <input type="password" id="loginPassword" class="form-control" (change)="validateInput('loginPassword')" name="loginPassword" ngModel required>
+                                    </div>
+                                </div>
+                        
+                                <!-- 2 column grid layout -->
+                                <div class="row mb-4">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <!-- Checkbox -->
+                                    <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <!-- Simple link -->
+                                    <a [routerLink]="" id="forgotPasswordButton" (click)="forgotPassword(forgotPasswordModal)">Forgot password?</a>
+                                </div>
+                                </div>
+                        
+                                <!-- Submit button -->
+                                <div class="d-flex justify-content-around">
+                                    <button type="submit" class="btn col-12 col-sm-5 mb-5 gradient-custom-2" [disabled]="disableLoginButton" >Login</button>
+                                </div>
+                            </form>
+                            </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="'register'" role="presentation">
+                    <a ngbNavLink class="d-flex justify-content-center align-items-center h-100 border-0 rounded-0">Register</a>
+                    <ng-template ngbNavContent>
+                        <div class="" id="registerNavContent" role="tabpanel" aria-labelledby="tab-register">
+                            <form>
+                                <div class="text-center mb-3">
+                                <p class="my-0">Register with</p>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fa fa-facebook-f"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fa fa-google"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fa fa-twitter"></i>
+                                </button>
+                        
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fa fa-github"></i>
+                                </button>
+                                </div>
+                        
+                                <div style="width: 100%; height: 17px; border-bottom: 1px solid #d8363a; text-align: center">
+                                    <span style="font-size: 20px; background-color: white; padding: 0 10px;">
+                                      OR <!--Padding is optional-->
+                                    </span>
+                                </div>
+                                <!-- Name input -->
+                                <div class="form-group row form-outline mt-5 mb-4">
+                                    <label class="form-label d-block col-sm-4" for="registerName">Name</label>
+                                    <div class="d-block col-sm-8">
+                                        <input type="text" id="registerName" class="form-control" />
+                                    </div>
+                                </div>
+                        
+                                <!-- Username input -->
+                                <div class="form-group row form-outline mb-4">
+                                    <label class="form-label d-block col-sm-4" for="registerUsername">Username</label>
+                                    <div class="d-block col-sm-8">
+                                        <input type="text" id="registerUsername" class="form-control" />
+                                    </div>
+                                </div>
+                        
+                                <!-- Email input -->
+                                <div class="form-group row form-outline mb-4">
+                                    <label class="form-label d-block col-sm-4" for="registerEmail">Email</label>
+                                    <div class="d-block col-sm-8">
+                                        <input type="email" id="registerEmail" class="form-control" />
+                                    </div>
+                                </div>
+                        
+                                <!-- Password input -->
+                                <div class="form-group row form-outline mb-4">
+                                    <label class="form-label d-block col-sm-4" for="registerPassword">Password</label>
+                                    <div class=" d-block col-sm-8">
+                                        <input type="password" id="registerPassword" class="form-control" />
+                                    </div>
+                                </div>
+                        
+                                <!-- Repeat Password input -->
+                                <div class="form-group row form-outline mb-4">
+                                    <label class="form-label d-block col-sm-4" for="registerRepeatPassword">Confirm password</label>
+                                    <div class=" d-block col-sm-8">
+                                        <input type="password" id="registerRepeatPassword" class="form-control" />
+                                    </div>
+                                </div>
+                        
+                                <!-- Checkbox -->
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                                    aria-describedby="registerCheckHelpText" />
+                                <label class="form-check-label" for="registerCheck">
+                                    I have read and agree to the terms
+                                </label>
+                                </div>
+                        
+                                <!-- Submit button -->
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn col-12 col-sm-5 mb-5 gradient-custom-2">Register</button>
+                                </div>
+                            </form>
+                            </div>
+                    </ng-template>
+                </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="pt-5 tab-content px-5 border border-danger border-top-0 rounded-bottom "></div>
+        </div>
+        <div class="col-md-2 col-lg-3"></div>
+    </div>
+</div>
+
+<ng-template #forgotPasswordModal let-modal class="bg-modal">
+    <app-forgot-password (closeModel)="closeModel(forgotPasswordModal)"></app-forgot-password>
+</ng-template>

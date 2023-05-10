@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="cust-client-mgmt-div col card mb-3 my-4 justify-content-center shadow">
+        <div class="row ">
+            <div class="d-flex gradient-custom-2 rounded-top py-3">
+                <div
+                    class="custom-card-head col-12 text-light d-flex flex-column justify-content-center align-items-center">
+                    <div class="h1 align-self-center">{{projectTitle}}</div>
+                    <div class="h6 align-self-center text-wrap">Your smooth Travel Management partner</div>
+                </div>
+            </div>
+            <div class="border-start border-secondary rounded-bottom">
+                <div class="card-body">
+                    <h5 class="card-title h2 text-secondary">Booking Management</h5>
+                    <hr>
+                    
+                    <p class="card-text">
+                            <div class="pt-3 table-responsive">
+                                <table class="table table-bordered table-hover " *ngIf="bookingList">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Client Name</th>
+                                            <th>Cab Detail</th>
+                                            <th>Booking Date</th>
+                                            <th>No. of Days</th>
+                                            <th>Total Amount</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of bookingList">
+                                            <td>{{data?.id}}</td>
+                                            <td>{{data.client?.name}}</td>
+                                            <td>{{data.cab?.id}} - {{data.cab?.cabModel}}</td>
+                                            <td>{{data?.date}}</td>
+                                            <td>{{data?.noOfDays}}</td>
+                                            <td>{{data?.price | currency:"USD":"symbol" }}</td>
+                                            <td class="d-flex justify-content-evenly">
+                                                <a role="button" (click)="openBookingAddEditModal(bookingScheduleEditModal,data)"><i class="fa fa-edit"></i></a>
+                                                <a role="button" (click)="openBookingCancelModal(bookingCancelModal,data)"><i class="fa fa-trash"></i></a>
+                                                <!-- <a role="button" (click)="cancelBooking(data.id)"><i class="fa fa-trash"></i></a> -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                        <!-- <div class="d-flex justify-content-end align-items-center">
+                            <button class="btn gradient-custom-2 me-1" (click)="openBookingAddEditModal(bookingScheduleEditModal)" > New Booking</button>
+                        </div> -->
+                    <!-- </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #bookingScheduleEditModal let-modal class="bg-modal">
+    <tms-edit-booking [bookingInfo]="bookingInfo" [clientId]="clientId" (closeModel)="closeModel(bookingScheduleEditModal)"></tms-edit-booking>
+</ng-template>
+
+<ng-template #bookingCancelModal let-modal>
+	<div class="modal-header gradient-custom-2">
+		<h4 class="modal-title" id="modal-basic-title">Cancel Booking</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="my-2 d-flex  flex-column align-items-center">
+            <p class=""><strong>Confirm if you want to cancel the booking.</strong></p> 
+            <p class=""><strong>Once canceled if cannot be reverted back.</strong></p>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn gradient-custom-2 me-1" (click)="cancelBooking(bookingInfo)">Cancel Booking</button>
+	</div>
+</ng-template>
+<!-- 
+<ng-template #bookingCancelModal let-modal class="bg-modal">
+    <tms-edit-booking [bookingInfo]="bookingInfo" (closeModel)="closeModel(bookingCancelModal)"></tms-edit-booking>
+</ng-template> -->

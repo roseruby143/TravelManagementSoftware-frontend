@@ -1,0 +1,44 @@
+.cust-meeting-schedule-div form{
+    border-radius: 10px;
+}
+
+.invalid-input {
+    box-shadow: 0 0 5px 1px red;
+    margin-bottom: 5px;
+}
+
+.invalid-input-error-message{
+    color: red;
+    /* border: 1px solid red; */
+    padding: 2px;
+    margin: 5px 0px;
+}
+
+.cust-nav-user-profile{
+    color: rgb(219, 215, 215);
+}
+
+.cust-meeting-schedule-div{
+    max-width: 768px
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    color:white;
+    font-weight: bold;
+}
+
+hr{
+    color: #d8363a;;
+}
+
+.custIconColor{
+    color: black;
+}
