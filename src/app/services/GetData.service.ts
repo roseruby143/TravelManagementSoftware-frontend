@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,7 @@ export class GetDataService {
 
   /******* ADMIN BOOKING APIs  **********/
   getBookingList():Observable<any[]>{
-    return this._httpclient.get<any[]>('/server/admin/bookings');
+    return this._httpclient.get<any[]>(`${environment.baseUrl}/admin/bookings`);
   }
 
   updateBooking(data:any,action:any):Observable<any[]>{
@@ -44,11 +45,11 @@ export class GetDataService {
     let url = '';
     if(action == 'update')
     {  
-      url = `/server/admin/booking/${Number(data.id)}`;
+      url = `${environment.baseUrl}/admin/booking/${Number(data.id)}`;
       console.log(`update url is : ${url}`);
       return this._httpclient.put<any[]>(url,data);
     }
-    url = `/server/admin/booking`;
+    url = `${environment.baseUrl}/admin/booking`;
       console.log(`update url is : ${url}`);
       return this._httpclient.post<any[]>(url,data);
   }
@@ -56,14 +57,14 @@ export class GetDataService {
   deleteBooking(bookingData:any):Observable<any[]>{
     const options = {body: bookingData};
     //const body = bookingData;
-    const url = `/server/admin/booking/${bookingData.id}`;
+    const url = `${environment.baseUrl}/admin/booking/${bookingData.id}`;
     return this._httpclient.delete<any[]>(url,options);
   }
 
   /********** ADMIN CLIENT APIS ********/
 
   getAllClients():Observable<any[]>{
-    return this._httpclient.get<any[]>('/server/admin/clients');
+    return this._httpclient.get<any[]>(`${environment.baseUrl}/admin/clients`);
   }
   
   updateClient(data:any,action:any):Observable<any>{
@@ -71,11 +72,11 @@ export class GetDataService {
     let url = '';
     if(action == 'update')
     {  
-      url = `/server/admin/client/${Number(data.clientId)}`;
+      url = `${environment.baseUrl}/admin/client/${Number(data.clientId)}`;
       console.log(`update url is : ${url}`);
       return this._httpclient.put<any[]>(url,data);
     }
-    url = `/server/admin/client`;
+    url = `${environment.baseUrl}/admin/client`;
       console.log(`update url is : ${url}`);
       return this._httpclient.post<any[]>(url,data);
   }
@@ -83,14 +84,14 @@ export class GetDataService {
   deleteClient(clientData:any):Observable<any[]>{
     const options = {body: clientData};
     //const body = bookingData;
-    const url = `/server/admin/client/${clientData.clientId}`;
+    const url = `${environment.baseUrl}/admin/client/${clientData.clientId}`;
     return this._httpclient.delete<any[]>(url,options);
   }
 
   /********** ADMIN CLIENT APIS ********/
 
   getAllCabs():Observable<any[]>{
-    return this._httpclient.get<any[]>('/server/admin/cabs');
+    return this._httpclient.get<any[]>(`${environment.baseUrl}/admin/cabs`);
   }
   
   updateCab(data:any,action:any):Observable<any>{
@@ -98,11 +99,11 @@ export class GetDataService {
     let url = '';
     if(action == 'update')
     {  
-      url = `/server/admin/cab/${Number(data.id)}`;
+      url = `${environment.baseUrl}/admin/cab/${Number(data.id)}`;
       console.log(`update url is : ${url}`);
       return this._httpclient.put<any[]>(url,data);
     }
-    url = `/server/admin/cab`;
+    url = `${environment.baseUrl}/admin/cab`;
       console.log(`update url is : ${url}`);
       //data.id=9;
       return this._httpclient.post<any[]>(url,data);
@@ -111,20 +112,20 @@ export class GetDataService {
   deleteCab(cabData:any):Observable<any[]>{
     const options = {body: cabData};
     //const body = bookingData;
-    const url = `/server/admin/cab/${cabData.cabId}`;
+    const url = `${environment.baseUrl}/admin/cab/${cabData.cabId}`;
     return this._httpclient.delete<any[]>(url,options);
   }
 
   /******  My Bookings APIs *****/
   getMyBookings(clientId:Number):Observable<any[]> {
-    const url = `/server/client/${clientId}/bookings`;
+    const url = `${environment.baseUrl}/client/${clientId}/bookings`;
     return this._httpclient.get<any[]>(url);
   }
 
   deleteClientBooking(bookingData:any):Observable<any[]>{
     const options = {body: bookingData};
     //const body = bookingData;
-    const url = `/server/client/${bookingData.client.clientId}/booking/${bookingData.id}`;
+    const url = `${environment.baseUrl}/client/${bookingData.client.clientId}/booking/${bookingData.id}`;
     return this._httpclient.delete<any[]>(url,options);
   }
 
@@ -133,11 +134,11 @@ export class GetDataService {
     let url = '';
     if(action == 'update')
     {  
-      url = `/server/client/${data.client.clientId}/booking/${Number(data.id)}`;
+      url = `${environment.baseUrl}/client/${data.client.clientId}/booking/${Number(data.id)}`;
       console.log(`updamte url is : ${url}`);
       return this._httpclient.put<any[]>(url,data);
     }
-    url = `/server/client/${data.client.clientId}/booking`;
+    url = `${environment.baseUrl}/client/${data.client.clientId}/booking`;
       console.log(`update url is : ${url}`);
       return this._httpclient.post<any[]>(url,data);
   }

@@ -1,6 +1,6 @@
 {
   "/server":{
-    "target":"http://localhost:8080",
+    "target":"http://localhost:9070",
     "secure":false,
     "changeOrigin":true,
     "logLevel":"debug",
